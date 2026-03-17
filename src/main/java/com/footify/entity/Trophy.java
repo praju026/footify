@@ -7,14 +7,20 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 public class Trophy {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@NotBlank(message = "Required Field")
 	private long id;
+	
+	@NotBlank(message = "Required Field")
 	private String name;
+	
+	@NotBlank(message = "Required Field")
 	private long year;
 	
 	@ManyToOne

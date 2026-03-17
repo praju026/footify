@@ -13,6 +13,8 @@ import com.footify.entity.Player;
 import com.footify.repository.ClubRepository;
 import com.footify.service.PlayerService;
 
+import jakarta.validation.Valid;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -36,7 +38,7 @@ public class PlayerController {
 	
 	
 	@PostMapping("/players/club/{club_id}")
-	public Player addPlayerToClub(@PathVariable long club_id,@RequestBody Player player) {
+	public Player addPlayerToClub(@PathVariable @Valid long club_id,@RequestBody @Valid Player player) {
 		Club club = clubRepository.findById(club_id).orElseThrow();
 		player.setClub(club);
 		return playerService.addPlayer(player);

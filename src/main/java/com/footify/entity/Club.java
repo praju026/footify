@@ -9,6 +9,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.Setter;
 @Getter
@@ -18,12 +19,25 @@ public class Club {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@NotBlank(message = "Player ID Is Must")
 	private long id;
+	
+	@NotBlank(message = "Player Name Can Not Be Blank")
 	private String name;
+	
+	@NotBlank(message = "Country Is Required")
 	private String country;
+	
+	@NotBlank(message = "Staduim Is Required")
 	private String stadium;
+	
+	@NotBlank(message = "Required")
 	private long foundedYear;
+	
+	@NotBlank(message = "Coach name required")
 	private String coach;
+	
+	@NotBlank(message = "log url is must")
 	private String logoUrl;
 	
 	@OneToMany(mappedBy = "club")

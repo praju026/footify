@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.footify.entity.Club;
 import com.footify.serviceImpl.ClubServiceImpl;
 
+import jakarta.validation.Valid;
+
 
 @RestController
 @RequestMapping("/clubs")
@@ -23,18 +25,18 @@ public class ClubController {
 	private ClubServiceImpl impl;
 	
 	@GetMapping
-	public List<Club> getAllClubs(Club club) {
+	public List<Club> getAllClubs(@Valid Club club) {
 		
 		return impl.getAllClub(club);
 	}
 	@PostMapping 
-	public Club addClub(@RequestBody Club club) {
+	public Club addClub(@RequestBody @Valid Club club) {
 		
 		return impl.addClub(club);
 	}
 	
 	@GetMapping("/{id}")
-	public Club getClubById(@PathVariable long id) {
+	public Club getClubById(@PathVariable @Valid long id) {
 		return impl.getClubById(id);
 	}
 }

@@ -12,6 +12,7 @@ import com.footify.repository.ClubRepository;
 import com.footify.repository.PlayerRepository;
 import com.footify.repository.TransferRepository;
 import com.footify.service.TransferService;
+import com.praju.footify.exception.ResourceNotFoundException;
 
 
 @Service 
@@ -33,7 +34,7 @@ public class TransferServiceImpl implements TransferService {
 
 	@Override
 	public Transfer addTransfer(long player_id, Transfer transfer ) {
-		Player player = playerRepository.findById(player_id).orElseThrow();
+		Player player = playerRepository.findById(player_id).orElseThrow(() ->new  ResourceNotFoundException("Player With "+player_id+" Not found"));
 		transfer.setPlayer(player);
 		Transfer saveTransfer = transferRepository.save(transfer);
 		

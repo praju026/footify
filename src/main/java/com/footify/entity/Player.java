@@ -12,17 +12,32 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 public class Player {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@NotBlank(message = "Id Required")
 	private long id;
+	
+	@NotBlank(message = "Name Required")
 	private String name;
+	
+	@NotBlank(message = "Position Required")
 	private String position;
+	
+	@NotBlank(message = "Jersey Number Required")
+	@Min(value = 1,message = "Jersey Number has to Start From 1")
 	private long jerseyNumber;
+	
+	@NotBlank(message = "Nationality Required")
 	private String nationality;
+	
+	@NotBlank(message = "Age Required")
+	@Min(value = 14,message = "minimum age 14 Required")
 	private long age;
 	
 	@ManyToOne

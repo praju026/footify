@@ -10,6 +10,7 @@ import com.footify.dto.PlayerResponseDTO;
 import com.footify.entity.Player;
 import com.footify.repository.PlayerRepository;
 import com.footify.service.PlayerService;
+import com.praju.footify.exception.ResourceNotFoundException;
 
 @Service
 public class PlayerServiceImpl implements PlayerService {
@@ -34,7 +35,7 @@ public class PlayerServiceImpl implements PlayerService {
 
 	@Override
 	public PlayerResponseDTO getPlayerById(long id) {
-		Player player = playerRepository.findById(id).orElseThrow();
+		Player player = playerRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Player with give id not found "+id));
 		return mapToDTO(player);
 	}
 

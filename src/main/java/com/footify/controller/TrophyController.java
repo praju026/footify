@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.footify.entity.Trophy;
 import com.footify.serviceImpl.TrophyServiceImpl;
 
+import jakarta.validation.Valid;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +34,7 @@ public class TrophyController {
 	}
 	
 	@PostMapping("/club/{club_id}")
-	public Trophy addTrophyToClub(@PathVariable long club_id,@RequestBody Trophy trophy) {
+	public Trophy addTrophyToClub(@PathVariable @Valid long club_id,@RequestBody @Valid Trophy trophy) {
 		
 		return impl.addTrophyToClub(club_id, trophy);
 		
