@@ -1,4 +1,4 @@
-package com.praju.footify.exception;
+package com.footify.exception;
 
 public class ResourceNotFoundException extends RuntimeException{
 

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.footify.entity.Club;
 import com.footify.repository.ClubRepository;
 import com.footify.service.ClubService;
-import com.praju.footify.exception.ResourceNotFoundException;
+import com.footify.exception.ResourceNotFoundException;
 
 @Service
 public class ClubServiceImpl implements ClubService {

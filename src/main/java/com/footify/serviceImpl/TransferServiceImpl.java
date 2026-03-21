@@ -12,7 +12,7 @@ import com.footify.repository.ClubRepository;
 import com.footify.repository.PlayerRepository;
 import com.footify.repository.TransferRepository;
 import com.footify.service.TransferService;
-import com.praju.footify.exception.ResourceNotFoundException;
+import com.footify.exception.ResourceNotFoundException;
 
 
 @Service 

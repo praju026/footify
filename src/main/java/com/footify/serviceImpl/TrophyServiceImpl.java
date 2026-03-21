@@ -10,7 +10,7 @@ import com.footify.entity.Trophy;
 import com.footify.repository.ClubRepository;
 import com.footify.repository.TrophyRepository;
 import com.footify.service.TrophyService;
-import com.praju.footify.exception.ResourceNotFoundException;
+import com.footify.exception.ResourceNotFoundException;
 
 @Service
 public class TrophyServiceImpl implements TrophyService {

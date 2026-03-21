@@ -10,7 +10,7 @@ import com.footify.dto.PlayerResponseDTO;
 import com.footify.entity.Player;
 import com.footify.repository.PlayerRepository;
 import com.footify.service.PlayerService;
-import com.praju.footify.exception.ResourceNotFoundException;
+import com.footify.exception.ResourceNotFoundException;
 
 @Service
 public class PlayerServiceImpl implements PlayerService {

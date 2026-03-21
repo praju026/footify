@@ -1,4 +1,4 @@
-package com.praju.footify.exception;
+package com.footify.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
