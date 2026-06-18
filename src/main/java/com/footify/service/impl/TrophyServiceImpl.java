@@ -1,0 +1,37 @@
+package com.footify.service.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.footify.entity.Club;
+import com.footify.entity.Trophy;
+import com.footify.repository.ClubRepository;
+import com.footify.repository.TrophyRepository;
+import com.footify.service.TrophyService;
+import com.footify.exception.ResourceNotFoundException;
+
+@Service
+public class TrophyServiceImpl implements TrophyService {
+	
+	@Autowired
+	private TrophyRepository trophyRepository;
+	
+	@Autowired
+	private ClubRepository clubRepository;
+	
+	@Override
+	public List<Trophy> getAllTrophies() {
+		return trophyRepository.findAll();
+	}
+
+	@Override
+	public Trophy addTrophyToClub(long club_id, Trophy trophy) {
+		Club club = clubRepository.findById(club_id)
+				.orElseThrow(() -> new ResourceNotFoundException("No Club Available with id " + club_id));
+		trophy.setClub(club);
+		return trophyRepository.save(trophy);
+	}
+
+}
